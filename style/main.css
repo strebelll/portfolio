@@ -1,71 +1,405 @@
 @import "style/reset.css";
 @import "style/fonts.css";
 
+:root {
+    --gelb: #FFCF30;
+    --dunkelgrün: #35431F;
+    --hellgrün: #8C9951;
+    --beige:#E5D7C4;
+    --braun:#544323;
+    
+    /* Responsive spacing variables */
+    --container-padding: clamp(1rem, 4vw, 2.5rem);
+    --section-padding: clamp(2rem, 5vw, 4rem);
+    --content-max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: var(--dunkelgrün);
     margin: 0;
-    padding: 40px;
-    size: 100%;
+    line-height: 1.4;
+    overflow-x: hidden;
 }
 
-h1 {
-    font-family: 'BBH Sans Hegarty', sans-serif;
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--container-padding);
+    position: sticky;
+    top: 0;
+    background-color: var(--dunkelgrün);
+    z-index: 100;
 }
 
-.transitions {
-    padding: 4px 12px;
-    background-color: blue;
-    color: white;
-    border-radius: 9999px;
+.logo {
+    font-family: 'frijole';
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gelb);
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2rem);
+    font-family: 'frijole';
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--gelb);
+    font-weight: lighter;
+}
+
+.menu a {
+    font-weight: lighter;
+    text-decoration: none;
+    color: var(--gelb);
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--hellgrün);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
     border: none;
-    transition: background-color 1000ms ease-out, transform 300ms ease-in-out;
-    &:hover {
-        background-color: violet;
-        cursor: pointer;
-        transform: scale(1.1);
-    }
+    color: var(--gelb);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
 }
 
-.animation {
-    animation: wolfgang 3000ms ease-in;
+/* Typography */
+h1 {
+    font-family: 'frijole';
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    color: var(--gelb);
+    word-spacing: 95px;
+    margin: 0;
+    font-weight: lighter;
+    line-height: 1;
+    white-space: nowrap;
+    position: relative;
 }
 
-@keyframes wolfgang {
-    0% {
-        background-color: red;
-        transform: rotate(0deg) translateX(0);
-    }
-    50% {
-        background-color: yellow;
-        transform: rotate(90deg) translateX(0);
-    }
-    100% {
-        background-color: green;
-        transform: rotate(90deg) translateX(400px);
-    }
+h2 {
+    font-family: 'rock 3d';
+    font-weight: lighter;
+    font-size: clamp(3rem, 10vw, 9rem);
+    color: var(--gelb);
+    line-height: 1;
+    padding-right: 20px;
+    white-space: nowrap;
+    top: 0;
+    right: 0;
+    letter-spacing: clamp(-2px, -0.5vw, 0px);
 }
 
-.in-animation {
-    width: 100%;
-    height: 80vh;
-    background-color: blue;
-    color: white;
+h3 {
+    font-family: 'frijole';
+    font-size: clamp(2rem, 6vw, 6rem);
+    font-weight: lighter;
+    margin-bottom: 1rem;
+}
+
+h4 {
+    font-family: 'frijole';
+    font-size: clamp(2rem, 5vw, 4.375rem);
+    font-weight: lighter;
+    color: var(--hellgrün);
+    margin: 0;
+}
+
+/* Hero Section */
+.einstieg {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--container-padding);
+    overflow: hidden;
+}
+
+.portrait {
+    width: clamp(250px, 50vw, 600px);
+    height: clamp(300px, 60vw, 500px);
+    background-color: var(--hellgrün);
+    flex-shrink: 0;
+    position: relative;
+    align-items: center;
+    padding-right: 100px;
+    z-index: 2;
+}
+
+.start2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    margin-left: auto;
+    flex: 1;
+    max-width: 800px;
+    position: relative;
+}
+
+.start1 {
+    text-align: right;
+    position: relative;
+    z-index: 10;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.start {
+    text-align: right;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 3vw, 2rem);
+}
+
+.toptop,
+.topsecond,
+.topsecond2 {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.multimedia {
+    text-align: left;
+    position: absolute;
+    left: clamp(-200px, -30vw, -150px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.producerin {
+    text-align: right;
+    margin-top: -1rem;
+}
+
+/* Section Styles */
+.uebermich,
+.projekte,
+.kontakt {
+    padding: var(--section-padding);
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    font-family: 'advent pro';
+    font-size: clamp(1.125rem, 3vw, 2.5rem);
+    line-height: 1.6;
+}
+
+.uebermich {
+    color: var(--braun);
+    background-color: var(--beige);
+}
+
+.uebermich_titel {
+    text-align: right;
+    color: var(--braun);
+    margin-bottom: 2rem;
+}
+
+.projekte {
+    color: var(--gelb);
+    background-color: var(--dunkelgrün);
+}
+
+.projekte_titel {
+    color: var(--gelb);
+    margin-bottom: 2rem;
+}
+
+.projekte ul {
+    list-style: none;
+    padding: 0;
+}
+
+.projekte li {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.projekte li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--hellgrün);
+    font-weight: bold;
+}
+
+.kontakt {
+    color: var(--braun);
+    background-color: var(--beige);
+}
+
+.kontakt_titel {
+    text-align: right;
+    color: var(--braun);
+    margin-bottom: 2rem;
+}
+
+/* Links and Footer */
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hellgrün);
+}
+
+footer {
+    background-color: var(--braun);
+    color: var(--beige);
     text-align: center;
-    padding: 40px;
-    h1{
-        animation: slide-in 400ms ease-in-out;
+    padding: var(--section-padding);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-family: 'advent pro';
+}
+
+/* Mobile-first Media Queries */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
     }
     
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--dunkelgrün);
+        border-top: 2px solid var(--gelb);
+        flex-direction: column;
+        padding: 1rem var(--container-padding);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu.open {
+        display: flex;
+    }
+    
+    .einstieg {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem 1rem;
+    }
+    
+    .portrait {
+        width: min(80vw, 350px);
+        height: min(60vw, 300px);
+        order: 1;
+    }
+    
+    .start2 {
+        order: 2;
+        margin-left: 0;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .start,
+    .start1 {
+        text-align: center;
+    }
+    
+    .multimedia {
+        position: static;
+        text-align: center;
+        transform: none;
+        margin-top: 1rem;
+        margin-bottom: -0.5rem;
+    }
+    
+    .producerin {
+        margin-top: 0;
+    }
+    
+    .uebermich_titel,
+    .kontakt_titel {
+        text-align: center;
+    }
+    
+    h1 {
+        white-space: normal;
+    }
+    
+    h2 {
+        white-space: normal;
+        position: relative;
+        top: auto;
+        right: auto;
+        letter-spacing: normal;
+    }
 }
 
-@keyframes slide-in {
-    from {
-        opacity: 0;
-        transform: translateX(100%);
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 1rem;
+        --section-padding: 2rem 1rem;
     }
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    
+    .start {
+        gap: 0;
+    }
+    
+    .projekte li {
+        padding-left: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+    
+    .menu {
+        display: flex !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .einstieg {
+        flex-direction: row;
+        gap: 3rem;
+    }
+    
+    .portrait {
+        margin-right: 2rem;
+    }
+    
+    .start2 {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1201px) {
+    .einstieg {
+        flex-direction: row;
+        gap: 4rem;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+    
+    .portrait {
+        margin-right: 3rem;
     }
 }
