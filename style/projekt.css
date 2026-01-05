@@ -1,0 +1,234 @@
+@import "style/reset.css";
+@import "style/fonts.css";
+
+:root {
+    --gelb: #FFCF30;
+    --dunkelgrün: #35431F;
+    --hellgrün: #8C9951;
+    --beige:#E5D7C4;
+    --braun:#544323;
+
+        /* Responsive spacing variables */
+    --container-padding: clamp(1rem, 4vw, 2.5rem);
+    --section-padding: clamp(2rem, 5vw, 4rem);
+    --content-max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:var(--hellgrün);
+    margin: 0;
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--container-padding);
+    position: sticky;
+    top: 0;
+    background-color: var(--hellgrün);
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'frijole';
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gelb);
+    font-weight: lighter;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2rem);
+    font-family: 'frijole';
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--gelb);
+    font-weight: lighter;
+}
+
+.menu a {
+    font-weight: lighter;
+    text-decoration: none;
+    color: var(--gelb);
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--dunkelgrün);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--gelb);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+/* Typography */
+h1 {
+    font-family: 'frijole';
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    color: var(--gelb);
+    word-spacing: 95px;
+    margin: 0;
+    font-weight: lighter;
+    line-height: 1;
+    white-space: nowrap;
+    position: relative;
+}
+
+h2 {
+    font-family: 'rock 3d';
+    font-weight: lighter;
+    font-size: clamp(3rem, 10vw, 9rem);
+    color: var(--gelb);
+    line-height: 1;
+    padding-right: 20px;
+    white-space: nowrap;
+    top: 0;
+    right: 0;
+    letter-spacing: clamp(-2px, -0.5vw, 0px);
+}
+
+h3 {
+    font-family: 'frijole';
+    font-size: clamp(2rem, 6vw, 6rem);
+    font-weight: lighter;
+    margin-bottom: 1rem;
+    color: var(--braun);
+}
+
+/* Projekte Section with Layered Titles */
+.projekte {
+    position: relative;
+    padding: var(--section-padding);
+    text-align: center;
+}
+
+.projekte_titel {
+    font-family: 'frijole';
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: var(--braun);
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    line-height: 1.1;
+}
+
+.projekt-beschreibung {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+.projekt-name {
+    font-family: 'rock 3d';
+    font-size: clamp(2.5rem, 7vw, 7rem);
+    color: var(--gelb);
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    margin: 0;
+    opacity: 0.8;
+}
+
+h4 {
+    font-family: 'rock 3d';
+    font-size: clamp(2rem, 5vw, 4.375rem);
+    font-weight: lighter;
+    color: var(--gelb);
+    margin: 0;
+}
+
+p {
+    font-size: 25px;
+    font-family: advent pro;
+    color: var(--braun);
+    margin-top: 3rem;
+    line-height: 1.6;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+.video-container iframe {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.kontakt {
+    color: var(--braun);
+    background-color: var(--beige);
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    padding: var(--section-padding);
+    font-family: 'advent pro';
+    font-size: clamp(1.125rem, 3vw, 2.5rem);
+    line-height: 1.6;
+}
+
+.kontakt_titel {
+    text-align: right;
+    color: var(--braun);
+    margin-bottom: 2rem;
+    font-family: 'frijole';
+    font-size: clamp(2rem, 6vw, 6rem);
+    font-weight: lighter;
+}
+
+/* Links and Footer */
+a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hellgrün);
+}
+
+footer {
+    background-color: var(--braun);
+    color: var(--beige);
+    text-align: center;
+    padding: var(--section-padding);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-family: 'advent pro';
+}
+
+footer {
+    background-color: var(--braun);
+    color: var(--beige);
+    text-align: center;
+    padding: var(--section-padding);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-family: 'advent pro';
+}
+
+.footertext {
+    color: var(--beige);
+}
