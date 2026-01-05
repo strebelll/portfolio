@@ -28,11 +28,94 @@
             <div class="video-container">
                 <iframe width="800" height="450" src="https://www.youtube.com/embed/hV32e24igqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-             <p>Die Markthalle IX ist ein innovatives urbanes Entwicklungsprojekt, das darauf abzielt, einen lebendigen und nachhaltigen Gemeinschaftsraum zu schaffen. Mit einem Fokus auf ökologische Bauweise und soziale Integration bietet die Markthalle IV eine Vielzahl von Funktionen, darunter Einzelhandelsflächen, Gastronomiebetriebe und Veranstaltungsorte. Das Design fördert die Interaktion zwischen den Besuchern und unterstützt lokale Unternehmen. Durch die Kombination von modernem Architekturansatz und umweltfreundlichen Technologien setzt die Markthalle IV neue Maßstäbe für städtische Lebensqualität.</p>
+        <div class="content-columns">
+            <div class="left-column">
+                <h5 class="column-title">Infos zum Projekt</h5>
+                <p>Diese Kurzdokumentation entstand im Rahmen meines Studiums und wurde in der Markthalle Neun in Berlin gedreht. Im Zentrum steht das Thema Liebe – erzählt durch Begegnungen, Gespräche und Stimmungen eines lebendigen Ortes.
+
+Wir arbeiteten als vierköpfiges Team und wechselten uns während des Drehs bewusst in den Rollen ab. So war jede Person sowohl an Kamera, Ton als auch bei den Interviews beteiligt. Konzeption und Planung entwickelten wir gemeinsam.
+
+Eine besondere Herausforderung war die Organisation aus der Schweiz heraus. Wir hatten keine lokalen Kontakte in Berlin und mussten Dreh, Protagonist:innen und Abläufe vollständig im Voraus planen.
+
+In der Postproduktion war ich für den Rohschnitt sowie das Sounddesign verantwortlich und prägte damit den Rhythmus und die Atmosphäre des Films.</p>
+            </div>
+            <div class="right-column">
+                <h5 class="column-title">Aufgaben</h5>
+                <ul>
+                    <li>Konzept</li>
+                    <li>Planung</li>
+                    <li>Interview</li>
+                    <li>Kamera</li>
+                    <li>Ton</li>
+                    <li>Rohschnitt</li>
+                    <li>Sounddesign</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bts">
+            <h5 class="bts-title">Behind the Scenes</h5>
+            <div class="slideshow-container">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="img/IMG_5636.JPG" alt="Behind the Scenes 1">
+                    </div>
+                    <div class="slide">
+                        <img src="img/IMG_5642.JPG" alt="Behind the Scenes 2">
+                    </div>
+                    <div class="slide">
+                        <img src="img/IMG_7312 2.jpeg" alt="Behind the Scenes 3">
+                    </div>
+                    <div class="slide">
+                        <img src="img/IMG_5727.JPG" alt="Behind the Scenes 4">
+                    </div>
+                </div>
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="dots-container">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
+            </div>
+        </div>
         </section>
     </main>
     <footer>
         <p class="footertext">&copy; 2026 Lisa Strebel. Alle Rechte vorbehalten.</p>
     </footer>
+    
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-play slideshow (optional)
+        setInterval(() => {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }, 5000);
+    </script>
 </body>
 </html>

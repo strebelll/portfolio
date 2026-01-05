@@ -237,17 +237,102 @@ p {
     color: var(--braun);
 }
 
-.portrait2 {
-    width: 600px;
-    height: 500px;
-    background-color: var(--dunkelgrün);
+/* Behind the Scenes Slideshow */
+.bts {
+    margin: 4rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.bts-title {
+    font-family: 'frijole';
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--braun);
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.slideshow-container {
     position: relative;
-    align-items: center;
-    z-index: 2;
+    max-width: 100%;
     margin: 0 auto;
-    display: block;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    overflow: hidden;
+}
+
+.slides {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dunkelgrün);
+    background-color: var(--beige);
+    border: none;
+    padding: 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover, .next:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.dots-container {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: var(--dunkelgrün);
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: var(--gelb);
+    transform: scale(1.2);
 }
 
 .projekte {
@@ -331,6 +416,31 @@ footer {
     padding: var(--section-padding);
     font-size: clamp(1rem, 2vw, 1.25rem);
     font-family: 'advent pro';
+}
+
+/* Portrait Box with Object Image */
+.portrait-box {
+    width: clamp(300px, 50vw, 600px);
+    height: clamp(350px, 60vw, 500px);
+    background-color: var(--hellgrün);
+    margin: 2rem auto;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.portrait-object {
+    max-width: 90%;
+    max-height: 95%;
+    object-fit: contain;
+    object-position: bottom;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Mobile-first Media Queries */
@@ -438,6 +548,29 @@ footer {
     
     .projekte li {
         padding-left: 1.5rem;
+    }
+    
+    /* Mobile slideshow adjustments */
+    .slideshow-container {
+        margin: 40px auto;
+        padding: 0 1rem;
+    }
+    
+    .slides {
+        height: 300px;
+    }
+    
+    .prev, .next {
+        padding: 0.75rem;
+        font-size: 1.2rem;
+    }
+    
+    .prev {
+        left: 10px;
+    }
+    
+    .next {
+        right: 10px;
     }
 }
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Frijole&family=Rock+3D&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/projekt.css">
+    <title>Lisa Strebel</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">Lisa Strebel</a>
+        <button class="menu-toggle" aria-label="Menu öffnen">☰</button>
+        <nav class="menu" role="navigation">
+            <a href="index.html">über mich</a>
+            <a href="index.html">Projekte</a>
+            <a href="index.html">Kontakt</a>
+        </nav>
+    </header>
+    <main>
+        <section class="projekte" id="projekte">
+            <h3 class="projekte_titel">Standort I</h3>
+            <div class="projekt-beschreibung">
+                <h4 class="projekt-name">Mockumentary</h4>
+            </div>
+            <div class="video-container">
+                <iframe width="800" height="450" src="https://www.youtube.com/embed/hV32e24igqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="content-columns">
+            <div class="left-column">
+                <h5 class="column-title">Infos zum Projekt</h5>
+                <p></p>
+            </div>
+            <div class="right-column">
+                <h5 class="column-title">Aufgaben</h5>
+                <ul>
+                    <li>Konzept</li>
+                    <li>Drehbuch</li>
+                    <li>Planung</li>
+                    <li>Casting</li>
+                    <li>Produktionsleitung</li>
+                    <li>Sounddesign</li>
+                    <li>Color Grading</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bts">
+            <h5 class="bts-title">Behind the Scenes</h5>
+            <div class="slideshow-container">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="img/Mockumentary/IMG_1248 3.JPG" alt="Behind the Scenes 1">
+                    </div>
+                    <div class="slide">
+                        <img src="img/Mockumentary/b947d531-c6e6-4bf8-ae8e-4d786a4901d7.JPG" alt="Behind the Scenes 2">
+                    </div>
+                    <div class="slide">
+                        <img src="img/Mockumentary/IMG_9568.JPG" alt="Behind the Scenes 3">
+                    </div>
+                </div>
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="dots-container">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+    <footer>
+        <p class="footertext">&copy; 2026 Lisa Strebel. Alle Rechte vorbehalten.</p>
+    </footer>
+    
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-play slideshow (optional)
+        setInterval(() => {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }, 5000);
+    </script>
+</body>
+</html>

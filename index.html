@@ -22,6 +22,7 @@
     <main>
 <div class="einstieg">
         <div class="portrait">
+             <img src="img/objekt.png" alt="Objekt" class="portrait-object">
         </div>
     <div class="start2">
         <div class="start1">
@@ -41,30 +42,53 @@
         <section class="uebermich" id="uebermich">
         <div>
             <h3 class="uebermich_titel">Über mich</h3>
-            <p>Ich bin Lisa Strebel, Multimedia Producerin mit einer Leidenschaft für kreative digitale Lösungen. Mit einem Hintergrund in interaktiven Medien und Design strebe ich danach, innovative Projekte zu realisieren, die sowohl ästhetisch ansprechend als auch funktional sind. Meine Fähigkeiten umfassen Webentwicklung, Grafikdesign und Content-Erstellung. Ich freue mich darauf, meine Expertise in spannenden Projekten einzubringen und gemeinsam mit Ihnen digitale Erlebnisse zu schaffen.</p>
-            <div class="portrait2">
+            <p><b>Ich bin Lisa</b>, studierte Generalistin bei allem was mit Medien zutun hat. <b>Ich bin Lisa</b>, leidenschaftliche Geschichtenerzählerin in Bild und Ton. <b>Ich bin Lisa</b>, kreative Problemlöserin mit einem offenen Ohr für Fragen. <b>Ich bin Lisa</b>, spassorientierte Teamplayerin mit einem grossen Netzwerk. <b>Ich bin Lisa</b>, reisefreudige Abenteurerin und Naturfreundin. <b>Ich bin Lisa</b>, musikbegeisterte Amateurklarinettistin. <b>Ich bin Lisa.</b></p>
+        </div>
+            <div class="slideshow-container">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="img/e9187b31-5a95-4dc6-b044-896249c813be.JPG" alt="Portfolio Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="img/IMG_0320.jpeg" alt="Portfolio Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="img/IMG_7179 3.jpg" alt="Portfolio Image 3">
+                    </div>
+                    <div class="slide">
+                        <img src="img/cb9f59db-7c46-4315-81c4-f9a1cb91a737 2.JPG" alt="Portfolio Image 4">
+                    </div>
+                </div>
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="dots-container">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
             </div>
         </section>
         <section class="projekte" id="projekte">
             <h3 class="projekte_titel">Projekte</h3>
             <div class="projekt-grid">
                 <a href="markthalle.html" class="projekt-box">
-                    <h4 class="projekt-titel">Markthalle IV</h4>
+                    <h4 class="projekt-titel">Markthalle IX</h4>
                 </a>
-                <a href="#projekt2" class="projekt-box">
-                    <h4 class="projekt-titel">Projekt 2</h4>
+                <a href="RTR.html" class="projekt-box">
+                    <h4 class="projekt-titel">RTR Tgeggsch?</h4>
                 </a>
-                <a href="#projekt3" class="projekt-box">
-                    <h4 class="projekt-titel">Projekt 3</h4>
+                <a href="ehc.html" class="projekt-box">
+                    <h4 class="projekt-titel">EHC Arosa</h4>
                 </a>
-                <a href="#projekt4" class="projekt-box">
-                    <h4 class="projekt-titel">Projekt 4</h4>
+                <a href="RadioCalanda.html" class="projekt-box">
+                    <h4 class="projekt-titel">Radio Calanda</h4>
                 </a>
-                <a href="#projekt5" class="projekt-box">
-                    <h4 class="projekt-titel">Projekt 5</h4>
+                <a href="ESC.html" class="projekt-box">
+                    <h4 class="projekt-titel">ESC side stories</h4>
                 </a>
-                <a href="#projekt6" class="projekt-box">
-                    <h4 class="projekt-titel">Projekt 6</h4>
+                <a href="mockumentary.html" class="projekt-box">
+                    <h4 class="projekt-titel">Standort I</h4>
                 </a>
             </div>
         </section>
@@ -76,5 +100,38 @@
     <footer>
         <p>&copy; 2026 Lisa Strebel. Alle Rechte vorbehalten.</p>
     </footer>
+    
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-play slideshow (optional)
+        setInterval(() => {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }, 5000);
+    </script>
 </body>
 </html>

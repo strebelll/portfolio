@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&family=Frijole&family=Rock+3D&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/projekt.css">
+    <title>Lisa Strebel</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">Lisa Strebel</a>
+        <button class="menu-toggle" aria-label="Menu öffnen">☰</button>
+        <nav class="menu" role="navigation">
+            <a href="index.html">über mich</a>
+            <a href="index.html">Projekte</a>
+            <a href="index.html">Kontakt</a>
+        </nav>
+    </header>
+    <main>
+        <section class="projekte" id="projekte">
+            <h3 class="projekte_titel">RTR Tgeggsch?</h3>
+            <div class="projekt-beschreibung">
+                <h4 class="projekt-name">Videoreihe</h4>
+            </div>
+            <div class="video-slideshow-container">
+                <div class="video-slides">
+                    <div class="video-slide active">
+                        <iframe width="800" height="450" src="https://www.rtr.ch/play/embed?urn=urn:rtr:video:e227f9a4-3334-4985-bc5b-520b866d6bf8&subdivisions=false" allowfullscreen allow="geolocation *; autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="video-slide">
+                        <iframe width="800" height="450" src="https://www.rtr.ch/play/embed?urn=urn:rtr:video:8924de84-32a4-4bed-8ccd-1a469ef168fd&subdivisions=false" allowfullscreen allow="geolocation *; autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="video-slide">
+                        <iframe width="800" height="450" src="https://www.rtr.ch/play/embed?urn=urn:rtr:video:c569c24f-52b2-4142-a34e-26897fd18fec&subdivisions=false" allowfullscreen allow="geolocation *; autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="video-slide">
+                        <iframe width="800" height="450" src="https://www.rtr.ch/play/embed?urn=urn:rtr:video:c906a8a9-6916-45ec-90b2-2e5ade6e66d5&subdivisions=false" allowfullscreen allow="geolocation *; autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="video-slide">
+                        <iframe width="800" height="450" src="https://www.rtr.ch/play/embed?urn=urn:rtr:video:ace5fca3-c380-44e5-b823-d6f159916899&subdivisions=false" allowfullscreen allow="geolocation *; autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="video-slide">
+                        <iframe width="800" height="450" src="https://www.rtr.ch/play/embed?urn=urn:rtr:video:9386c560-16fa-41e6-9732-e46ee1765b65&subdivisions=false" allowfullscreen allow="geolocation *; autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="video-slide">
+                        <iframe width="800" height="450" src="https://www.rtr.ch/play/embed?urn=urn:rtr:video:22a02b90-e05d-4d47-b386-76f720b65c07&subdivisions=false" allowfullscreen allow="geolocation *; autoplay; encrypted-media"></iframe>
+                    </div>
+                </div>
+                <button class="video-prev" onclick="changeVideoSlide(-1)">&#10094;</button>
+                <button class="video-next" onclick="changeVideoSlide(1)">&#10095;</button>
+                <div class="video-dots-container">
+                    <span class="video-dot active" onclick="currentVideoSlide(1)"></span>
+                    <span class="video-dot" onclick="currentVideoSlide(2)"></span>
+                    <span class="video-dot" onclick="currentVideoSlide(3)"></span>
+                    <span class="video-dot" onclick="currentVideoSlide(4)"></span>
+                    <span class="video-dot" onclick="currentVideoSlide(5)"></span>
+                    <span class="video-dot" onclick="currentVideoSlide(6)"></span>
+                    <span class="video-dot" onclick="currentVideoSlide(7)"></span>
+                </div>
+            </div>
+        <div class="content-columns">
+            <div class="left-column">
+                <h5 class="column-title">Infos zum Projekt</h5>
+                <p></p>
+            </div>
+            <div class="right-column">
+                <h5 class="column-title">Aufgaben</h5>
+                <ul>
+                    <li>Konzept</li>
+                    <li>Planung</li>
+                    <li>Casting</li>
+                    <li>Regie</li>
+                    <li>Schnitt</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bts">
+            <h5 class="bts-title">Behind the Scenes</h5>
+            <div class="slideshow-container">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="img/RTR/IMG_8699.jpeg" alt="Behind the Scenes 1">
+                    </div>
+                    <div class="slide">
+                        <img src="img/RTR/IMG_8702.jpeg" alt="Behind the Scenes 2">
+                    </div>
+                    <div class="slide">
+                        <img src="img/RTR/IMG_8754.jpeg" alt="Behind the Scenes 3">
+                    </div>                    
+                    <div class="slide">
+                        <img src="img/RTR/IMG_9298.jpeg" alt="Behind the Scenes 4">
+                    </div>
+                </div>
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                <div class="dots-container">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+    <footer>
+        <p class="footertext">&copy; 2026 Lisa Strebel. Alle Rechte vorbehalten.</p>
+    </footer>
+    
+    <script>
+        // Video slideshow functionality
+        let currentVideoSlideIndex = 0;
+        const videoSlides = document.querySelectorAll('.video-slide');
+        const videoDots = document.querySelectorAll('.video-dot');
+
+        function showVideoSlide(index) {
+            videoSlides.forEach(slide => slide.classList.remove('active'));
+            videoDots.forEach(dot => dot.classList.remove('active'));
+            
+            if (index >= videoSlides.length) currentVideoSlideIndex = 0;
+            if (index < 0) currentVideoSlideIndex = videoSlides.length - 1;
+            
+            videoSlides[currentVideoSlideIndex].classList.add('active');
+            videoDots[currentVideoSlideIndex].classList.add('active');
+        }
+
+        function changeVideoSlide(direction) {
+            currentVideoSlideIndex += direction;
+            showVideoSlide(currentVideoSlideIndex);
+        }
+
+        function currentVideoSlide(index) {
+            currentVideoSlideIndex = index - 1;
+            showVideoSlide(currentVideoSlideIndex);
+        }
+
+        // Image slideshow functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (index >= slides.length) currentSlideIndex = 0;
+            if (index < 0) currentSlideIndex = slides.length - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-play for images only (optional)
+        setInterval(() => {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }, 7000);
+    </script>
+</body>
+</html>
