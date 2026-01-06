@@ -226,17 +226,102 @@ p {
     left: 0;
 }
 
-/* Responsive layout */
+/* Mobile-first Media Queries */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--hellgrün);
+        border-top: 2px solid var(--gelb);
+        flex-direction: column;
+        padding: 1rem var(--container-padding);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    
+    .menu.open {
+        display: flex;
+    }
+    
+    /* Project page specific mobile styles */
+    .projekte {
+        padding: 2rem 1rem;
+    }
+    
+    .projekte_titel {
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    
+    .projekt-beschreibung {
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+    }
+    
+    .projekt-name {
+        position: static;
+        transform: none;
+        text-align: center;
+        font-size: clamp(2rem, 6vw, 4rem);
+        margin-bottom: 1rem;
+        opacity: 1;
+    }
+    
+    h3 {
+        white-space: normal;
+    }
+    
+    h4 {
+        white-space: normal;
+        font-size: clamp(2rem, 6vw, 4rem);
+        text-align: center;
+    }
+    
+    p {
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        padding: 0 0.5rem;
+    }
+
     .content-columns {
         flex-direction: column;
         gap: 2rem;
         padding: 0 1rem;
+        margin-top: 2rem;
     }
     
     .left-column,
     .right-column {
         flex: none;
+    }
+    
+    .column-title {
+        text-align: center;
+    }
+    
+    .right-column li {
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+    }
+    
+    /* Video and slideshow mobile adjustments */
+    .video-container {
+        padding: 0 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .video-container iframe {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
     }
 }
 
@@ -294,7 +379,7 @@ p {
     top: 50%;
     transform: translateY(-50%);
     color: var(--gelb);
-    background-color: var(--hellgrün);
+    background: none;
     border: none;
     padding: 1rem;
     font-size: 3rem;
@@ -447,28 +532,31 @@ p {
     .video-slideshow-container {
         margin: 1rem auto;
         padding: 0 1rem;
-        max-width: 90vw;
+        max-width: 95vw;
     }
     
     .video-slides {
         width: 100%;
-        height: 250px;
+        height: auto;
+        aspect-ratio: 16/9;
     }
     
     .video-slide {
         width: 100%;
-        height: 250px;
+        height: auto;
+        aspect-ratio: 16/9;
     }
     
     .video-slide iframe {
         width: 100%;
-        height: 250px;
+        height: auto;
+        aspect-ratio: 16/9;
     }
     
     .video-prev, .video-next {
         padding: 0.75rem;
         font-size: 1.2rem;
-        background-color: var(--hellgrün);
+        background: none;
     }
     
     .video-prev {
@@ -477,6 +565,166 @@ p {
     
     .video-next {
         right: 10px;
+    }
+}
+
+/* Additional mobile breakpoint for smaller screens */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 1rem;
+        --section-padding: 2rem 1rem;
+    }
+    
+    .projekte {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .projekte_titel {
+        font-size: clamp(2rem, 8vw, 4rem);
+        margin-bottom: -35px;
+    }
+    
+    .projekt-name {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+    
+    .content-columns {
+        padding: 0 0.75rem;
+        gap: 1.5rem;
+    }
+    
+    p {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        line-height: 1.5;
+    }
+    
+    .right-column li {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        padding-left: 1.5rem;
+    }
+    
+    /* Smaller video containers on very small screens */
+    .video-slideshow-container {
+        padding: 0 0.5rem;
+    }
+    
+    .video-slides {
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .video-slide {
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .video-slide iframe {
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .slides {
+        height: 300px;
+    }
+    
+    .prev, .next {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+    
+    .video-prev, .video-next {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Tablet responsiveness - All iPad and tablet sizes */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .menu-toggle {
+        display: none;
+    }
+    
+    .menu {
+        display: flex !important;
+    }
+    
+    .content-columns {
+        gap: 3rem;
+        padding: 0 1.5rem;
+    }
+    
+    .projekte {
+        padding: 3rem 1.5rem;
+    }
+    
+    /* Adjust video containers for tablet */
+    .video-slideshow-container {
+        max-width: 90vw;
+    }
+    
+    .video-slides {
+        width: min(700px, 90vw);
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .video-slide {
+        width: min(700px, 90vw);
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+    
+    .video-slide iframe {
+        width: min(700px, 90vw);
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+}
+
+/* Desktop optimization */
+@media (min-width: 1201px) {
+    .menu-toggle {
+        display: none;
+    }
+    
+    .menu {
+        display: flex !important;
+    }
+    
+    .projekte {
+        padding: var(--section-padding);
+    }
+    
+    .content-columns {
+        gap: 4rem;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 2rem;
+    }
+}
+
+/* Podcast container responsiveness */
+@media (max-width: 768px) {
+    .podcast-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+    
+    .spotify-embed {
+        max-width: 100%;
+    }
+    
+    .podcast-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        text-align: center;
+    }
+    
+    .podcast-description {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        text-align: center;
     }
 }
 
@@ -508,7 +756,6 @@ p {
 .spotify-embed {
     width: 100%;
     max-width: 700px;
-    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(120, 97, 79, 0.15);
 }
@@ -540,7 +787,6 @@ p {
     color: var(--beige);
     padding: 0.75rem 1.5rem;
     text-decoration: none;
-    border-radius: 25px;
     font-family: 'advent pro';
     font-weight: 600;
     font-size: 1rem;
@@ -607,19 +853,13 @@ footer {
     padding: var(--section-padding);
     font-size: clamp(1rem, 2vw, 1.25rem);
     font-family: 'advent pro';
-}
-
-footer {
-    background-color: var(--braun);
-    color: var(--beige);
-    text-align: center;
-    padding: var(--section-padding);
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    font-family: 'advent pro';
+    width: 100%;
+    margin: 0;
+    max-width: none;
+    margin-top: 50px;
 }
 
 .footertext {
     color: var(--beige);
-    margin-top: 50px;
     text-align: center;
 }

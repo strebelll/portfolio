@@ -14,9 +14,9 @@
         <a class="logo" href="index.html">Lisa Strebel</a>
         <button class="menu-toggle" aria-label="Menu öffnen">☰</button>
         <nav class="menu" role="navigation">
-            <a href="index.html">über mich</a>
-            <a href="index.html">Projekte</a>
-            <a href="index.html">Kontakt</a>
+            <a href="index.html#uebermich">über mich</a>
+            <a href="index.html#projekte">Projekte</a>
+            <a href="index.html#kontakt">Kontakt</a>
         </nav>
     </header>
     <main>
@@ -31,7 +31,11 @@
         <div class="content-columns">
             <div class="left-column">
                 <h5 class="column-title">Infos zum Projekt</h5>
-                <p></p>
+                <p>Gemeinsam mit einer Freundin habe ich eine Episode einer Mockumentary umgesetzt, die den Alltag im Studium Multimedia Production auf humorvolle und überspitzte Weise zeigt. Im Zentrum stehen schräge, überzeichnete Charaktere und typische Situationen, wie man sie aus dem Studienalltag kennt.
+
+Das Projekt begleitete uns über ein ganzes Jahr – von der ersten Idee bis zur finalen Version. Gedreht wurde schliesslich an einem intensiven Drehtag, ergänzt durch zusätzliche Interviewaufnahmen an einem weiteren Tag. Wir haben das Projekt komplett selbst getragen und dabei bewusst viel Zeit in die Ausarbeitung der Figuren, den Ablauf und den Rhythmus gesteckt.
+
+Die Episode richtet sich an MMP-Studierende und kombiniert trockenen Humor mit dem typischen Stil einer Mockumentary. Für uns beide war es ein echtes Herzensprojekt, in das viel persönliche Energie und Freude geflossen ist.</p>
             </div>
             <div class="right-column">
                 <h5 class="column-title">Aufgaben</h5>
@@ -76,6 +80,42 @@
     </footer>
     
     <script>
+        // Mobile Menu Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.menu');
+            
+            if (menuToggle && menu) {
+                menuToggle.addEventListener('click', function() {
+                    menu.classList.toggle('open');
+                    
+                    // Update aria-label for accessibility
+                    const isOpen = menu.classList.contains('open');
+                    menuToggle.setAttribute('aria-label', isOpen ? 'Menu schließen' : 'Menu öffnen');
+                    menuToggle.textContent = isOpen ? '✕' : '☰';
+                });
+                
+                // Close menu when clicking on a menu link
+                const menuLinks = menu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menu.classList.remove('open');
+                        menuToggle.setAttribute('aria-label', 'Menu öffnen');
+                        menuToggle.textContent = '☰';
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                        menu.classList.remove('open');
+                        menuToggle.setAttribute('aria-label', 'Menu öffnen');
+                        menuToggle.textContent = '☰';
+                    }
+                });
+            }
+        });
+        
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');

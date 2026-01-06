@@ -14,9 +14,9 @@
         <a class="logo" href="index.html">Lisa Strebel</a>
         <button class="menu-toggle" aria-label="Menu öffnen">☰</button>
         <nav class="menu" role="navigation">
-            <a href="index.html">über mich</a>
-            <a href="index.html">Projekte</a>
-            <a href="index.html">Kontakt</a>
+            <a href="index.html#uebermich">über mich</a>
+            <a href="index.html#projekte">Projekte</a>
+            <a href="index.html#kontakt">Kontakt</a>
         </nav>
     </header>
     <main>
@@ -86,6 +86,42 @@ In der Postproduktion war ich für den Rohschnitt sowie das Sounddesign verantwo
     </footer>
     
     <script>
+        // Mobile Menu Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.menu');
+            
+            if (menuToggle && menu) {
+                menuToggle.addEventListener('click', function() {
+                    menu.classList.toggle('open');
+                    
+                    // Update aria-label for accessibility
+                    const isOpen = menu.classList.contains('open');
+                    menuToggle.setAttribute('aria-label', isOpen ? 'Menu schließen' : 'Menu öffnen');
+                    menuToggle.textContent = isOpen ? '✕' : '☰';
+                });
+                
+                // Close menu when clicking on a menu link
+                const menuLinks = menu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menu.classList.remove('open');
+                        menuToggle.setAttribute('aria-label', 'Menu öffnen');
+                        menuToggle.textContent = '☰';
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                        menu.classList.remove('open');
+                        menuToggle.setAttribute('aria-label', 'Menu öffnen');
+                        menuToggle.textContent = '☰';
+                    }
+                });
+            }
+        });
+        
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');

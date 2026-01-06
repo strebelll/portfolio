@@ -14,9 +14,9 @@
         <a class="logo" href="index.html">Lisa Strebel</a>
         <button class="menu-toggle" aria-label="Menu öffnen">☰</button>
         <nav class="menu" role="navigation">
-            <a href="index.html">über mich</a>
-            <a href="index.html">Projekte</a>
-            <a href="index.html">Kontakt</a>
+            <a href="index.html#uebermich">über mich</a>
+            <a href="index.html#projekte">Projekte</a>
+            <a href="index.html#kontakt">Kontakt</a>
         </nav>
     </header>
     <main>
@@ -64,7 +64,11 @@
         <div class="content-columns">
             <div class="left-column">
                 <h5 class="column-title">Infos zum Projekt</h5>
-                <p></p>
+                <p>Während meines dreiwöchigen Praktikums bei RTR konzipierte und produzierte ich gemeinsam mit zwei Freund:innen mehrere Videoformate. Dabei erhielten wir viel gestalterische Freiheit und entwickelten eigene Ideen von der Konzeption bis zur Umsetzung.
+
+Insgesamt entstanden drei unterschiedliche Formate: ein Line-up-Video, bei dem erraten werden muss, wer kein echtes Rätoromanisch spricht, eine dreiteilige Videoreihe mit Yogaübungen im Zweierteam – erklärt auf Rätoromanisch und ausgeführt ohne Sprachkenntnisse – sowie ein Montagsmaler-Format mit rätoromanischen Fremdwörtern.
+
+Das Projekt verband Kreativität, Humor und Sprache und bot wertvolle Einblicke in die Formatentwicklung und die Arbeitsprozesse der SRG.</p>
             </div>
             <div class="right-column">
                 <h5 class="column-title">Aufgaben</h5>
@@ -82,16 +86,13 @@
             <div class="slideshow-container">
                 <div class="slides">
                     <div class="slide active">
-                        <img src="img/RTR/IMG_8699.jpeg" alt="Behind the Scenes 1">
+                        <img src="img/RTR/IMG_9298.jpeg" alt="Behind the Scenes 1">
                     </div>
                     <div class="slide">
                         <img src="img/RTR/IMG_8702.jpeg" alt="Behind the Scenes 2">
-                    </div>
+                    </div>                  
                     <div class="slide">
-                        <img src="img/RTR/IMG_8754.jpeg" alt="Behind the Scenes 3">
-                    </div>                    
-                    <div class="slide">
-                        <img src="img/RTR/IMG_9298.jpeg" alt="Behind the Scenes 4">
+                        <img src="img/RTR/IMG_8699.jpeg" alt="Behind the Scenes 3">
                     </div>
                 </div>
                 <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
@@ -100,7 +101,6 @@
                     <span class="dot active" onclick="currentSlide(1)"></span>
                     <span class="dot" onclick="currentSlide(2)"></span>
                     <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
                 </div>
             </div>
         </div>
@@ -111,6 +111,42 @@
     </footer>
     
     <script>
+        // Mobile Menu Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.menu');
+            
+            if (menuToggle && menu) {
+                menuToggle.addEventListener('click', function() {
+                    menu.classList.toggle('open');
+                    
+                    // Update aria-label for accessibility
+                    const isOpen = menu.classList.contains('open');
+                    menuToggle.setAttribute('aria-label', isOpen ? 'Menu schließen' : 'Menu öffnen');
+                    menuToggle.textContent = isOpen ? '✕' : '☰';
+                });
+                
+                // Close menu when clicking on a menu link
+                const menuLinks = menu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        menu.classList.remove('open');
+                        menuToggle.setAttribute('aria-label', 'Menu öffnen');
+                        menuToggle.textContent = '☰';
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                        menu.classList.remove('open');
+                        menuToggle.setAttribute('aria-label', 'Menu öffnen');
+                        menuToggle.textContent = '☰';
+                    }
+                });
+            }
+        });
+        
         // Video slideshow functionality
         let currentVideoSlideIndex = 0;
         const videoSlides = document.querySelectorAll('.video-slide');
