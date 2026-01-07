@@ -656,6 +656,10 @@ p {
     .projekte {
         padding: 3rem 1.5rem;
     }
+
+    .projekt-name {
+        top: -50px;
+    }
     
     /* Adjust video containers for tablet */
     .video-slideshow-container {

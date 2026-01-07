@@ -191,7 +191,6 @@ p {
 
 .rolle {
     position: absolute;
-    margin-right: 100px;
     top: 50%;
     transform: translateY(150%);
     display: flex;
@@ -203,7 +202,7 @@ p {
 .multimedia {
     text-align: right;
     position: relative;
-    margin-right: 380px;
+    margin-right: 180px;
 }
 
 .producerin {
@@ -456,7 +455,7 @@ footer {
 /* === MEDIA QUERIES - 3 BREAKPOINTS === */
 
 /* MOBILE FIRST: Up to 768px - Optimized for 390x844 template */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     :root {
         --container-padding: 1rem;
         --section-padding: 2rem 1rem;
@@ -655,7 +654,7 @@ footer {
 }
 
 /* TABLET: 769px to 1200px (All iPad sizes) */
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1200px) {
     .menu-toggle {
         display: none;
     }
@@ -685,7 +684,7 @@ footer {
         margin-left: 0;
         align-items: center;
         gap: 0.5rem;
-        margin-top: -80px;
+        margin-top: -50px;
         max-width: 100%;
     }
     
@@ -699,9 +698,16 @@ footer {
     }
 
     .start {
-        margin-top: -100px;
-        gap: -1.5rem;
+        margin-top: -1vh;
+        gap: 0px;
         width: 100%;
+    }
+
+    .toptop,
+    .topsecond,
+    .topsecond2 {
+        letter-spacing: 9px;
+        word-spacing: -30px;
     }
     
     .rolle {
@@ -709,14 +715,14 @@ footer {
         right: auto;
         top: auto;
         transform: none;
-        margin-top: 1.5rem;
+        margin-top: 50px;
         align-items: center;
         margin-right: 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
     
     .multimedia,
